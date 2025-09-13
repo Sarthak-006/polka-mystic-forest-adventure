@@ -1,4 +1,4 @@
-# MysticForestAdventure - Polkadot Integration
+# Polkadot Forest Adventure
 
 An interactive fantasy adventure game built for the Polkadot ecosystem with MetaMask wallet integration and blockchain state persistence.
 
@@ -85,6 +85,10 @@ This application demonstrates:
 - Blockchain state persistence
 - MetaMask wallet connectivity
 - Cryptographic signature verification
+
+## Repository
+
+This project is available at: [https://github.com/Sarthak-006/polka-mystic-forest-adventure](https://github.com/Sarthak-006/polka-mystic-forest-adventure)
 
 ---
 

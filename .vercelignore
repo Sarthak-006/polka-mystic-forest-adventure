@@ -1,5 +1,36 @@
-.git
-__pycache__
+# Ignore development files
+*.log
+*.tmp
+__pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
 .env.local
-*.log 
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore test files
+test/
+tests/
+*_test.py
+test_*.py
+
+# Ignore documentation that's not needed in production
+*.md
+!README.md

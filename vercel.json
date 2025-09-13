@@ -1,10 +1,13 @@
 {
     "version": 2,
-    "name": "mystic-forest-adventure-polkadot",
+    "name": "polka-mystic-forest-adventure",
     "builds": [
         {
             "src": "api/index.py",
-            "use": "@vercel/python"
+            "use": "@vercel/python",
+            "config": {
+                "maxDuration": 30
+            }
         },
         {
             "src": "public/**",
@@ -21,11 +24,6 @@
             "dest": "public/$1"
         }
     ],
-    "functions": {
-        "api/index.py": {
-            "maxDuration": 30
-        }
-    },
     "headers": [
         {
             "source": "/api/(.*)",

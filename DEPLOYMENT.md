@@ -2,7 +2,7 @@
 
 ## Quick Deploy to Vercel
 
-Your MysticForestAdventure with Polkadot integration is ready for Vercel deployment!
+Your Polkadot Forest Adventure with MetaMask integration is ready for Vercel deployment!
 
 ### Prerequisites
 - Vercel account (free at https://vercel.com)
@@ -16,6 +16,8 @@ Your MysticForestAdventure with Polkadot integration is ready for Vercel deploym
    git commit -m "Add Polkadot integration and MetaMask support"
    git push origin main
    ```
+
+   **Repository**: [https://github.com/Sarthak-006/polka-mystic-forest-adventure](https://github.com/Sarthak-006/polka-mystic-forest-adventure)
 
 2. **Deploy on Vercel**
    - Go to https://vercel.com
@@ -91,4 +93,4 @@ If deployment fails:
 
 ---
 
-**Your Polkadot-integrated MysticForestAdventure is ready to deploy! 🚀**
+**Your Polkadot Forest Adventure is ready to deploy! 🚀**
