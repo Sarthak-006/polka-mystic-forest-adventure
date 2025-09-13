@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Embark on a fantasy adventure through a magical forest where your choices determine your fate.">
+    <title>Mystic Forest Adventure | Interactive Story Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌲</text></svg>">
+
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="/api/state" type="image/png">
+</head>
+
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <div class="polkadot-banner">
+                <div class="polkadot-logo">
+                    <span class="dot-symbol">●</span>
+                    <span class="polkadot-text">Polkadot</span>
+                </div>
+                <div class="polkadot-badge">Built for Polkadot Ecosystem</div>
+            </div>
+            <h1 class="game-title">Mystic Forest <span>Adventure</span></h1>
+            <div class="header-controls">
+                <div id="wallet-status" class="wallet-status">
+                    <button id="connect-wallet" class="wallet-button">Connect Wallet</button>
+                    <div id="wallet-info" class="wallet-info" style="display: none;">
+                        <span id="wallet-address"></span>
+                        <div id="dot-balance" class="dot-balance">DOT: --</div>
+                        <button id="disconnect-wallet" class="wallet-button disconnect">Disconnect</button>
+                    </div>
+                </div>
+                <div id="score-display" class="score">Score: 0</div>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <div class="image-container">
+                <img id="story-image" alt="Story scene" class="story-image" loading="eager" width="1024" height="1024">
+                <div class="image-overlay"></div>
+                <div id="image-spinner" class="image-spinner" style="display:none"></div>
+                <div id="image-shimmer" class="image-shimmer" style="display:none"></div>
+                <button id="image-retry" class="image-retry" style="display:none">Retry</button>
+            </div>
+
+            <div id="situation-text" class="situation"></div>
+
+            <div id="loading-indicator" class="loading">Loading...</div>
+
+            <div id="choices" class="choice-container"></div>
+        </main>
+
+        <div id="end-screen" class="end-screen" style="display: none;">
+            <div id="end-text" class="end-text"></div>
+            <div class="end-images">
+                <div class="image-container end-manga-container">
+                    <img id="manga-image" alt="Story manga" class="manga-image" loading="lazy" width="1024"
+                        height="1024">
+                    <div class="image-spinner" id="manga-spinner" style="display:none"></div>
+                    <div class="image-shimmer" id="manga-shimmer" style="display:none"></div>
+                    <button class="image-retry" id="manga-retry" style="display:none">Retry</button>
+                </div>
+                <div class="image-container end-summary-container">
+                    <img id="summary-image" alt="Story summary" class="summary-image" loading="lazy" width="1024"
+                        height="1024">
+                    <div class="image-spinner" id="summary-spinner" style="display:none"></div>
+                    <div class="image-shimmer" id="summary-shimmer" style="display:none"></div>
+                    <button class="image-retry" id="summary-retry" style="display:none">Retry</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add modal dialog for sharing -->
+        <div id="share-modal" class="share-modal" style="display: none;">
+            <div class="share-modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Your Mystic Forest Adventure</h2>
+                <div class="share-image-container">
+                    <img id="share-manga-image" alt="Shareable manga story" class="share-manga-image" loading="lazy"
+                        width="1024" height="1024">
+                    <div id="share-loading" class="loading">Generating your story...</div>
+                </div>
+                <div class="share-actions">
+                    <button id="download-image" class="action-button download-button">Download Image</button>
+                    <button id="copy-image" class="action-button copy-button">Copy Image</button>
+                    <button id="share-twitter" class="action-button social-button twitter-button">Share on
+                        Twitter</button>
+                    <button id="share-facebook" class="action-button social-button facebook-button">Share on
+                        Facebook</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="game-footer">
+            <div class="polkadot-showcase">
+                <div class="polkadot-features">
+                    <h3>Built for Polkadot Ecosystem</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <span class="feature-icon">🔗</span>
+                            <span class="feature-text">Polkadot Hub TestNet Integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💎</span>
+                            <span class="feature-text">DOT Token Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span class="feature-text">Blockchain State Persistence</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔐</span>
+                            <span class="feature-text">Cryptographic Signatures</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="polkadot-links">
+                    <a href="https://polkadot.network" target="_blank" rel="noopener" class="polkadot-link">
+                        <span class="dot-symbol">●</span> Polkadot Network
+                    </a>
+                    <a href="https://docs.polkadot.com" target="_blank" rel="noopener" class="polkadot-link">
+                        📚 Documentation
+                    </a>
+                </div>
+            </div>
+            <p>
+                <span class="footer-brand">Mystic Forest Adventure</span> &copy; <span id="current-year"></span> |
+                Images by <a href="https://pollinations.ai" target="_blank" rel="noopener">pollinations.ai</a>
+            </p>
+            <p class="footer-note">
+                Your choices shape your destiny. Choose wisely.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
